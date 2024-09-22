@@ -114,26 +114,13 @@ int main()
     }
     
     //  инициализация
-    int q = 0;
     for (int k = 0; k < size3; ++k)
     {
         for (int j = 0; j < size2; ++j)
         {
             for (int i = 0; i < size1; ++i)
             {
-                p1[k][j][i] = q++;
-            }
-        }
-    }
-    
-    //  вывод значений в консоль
-    for (int k = 0; k < size3; ++k)
-    {
-        for (int j = 0; j < size2; ++j)
-        {
-            for (int i = 0; i < size1; ++i)
-            {
-                std::cout << p1[k][j][i] << std::endl;
+                p1[k][j][i] = 0;
             }
         }
     }
