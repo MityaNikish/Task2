@@ -31,7 +31,7 @@ private:
 	size_t Nt;
 	//	hx Ц шаг дискретизации по x
 	double hx;
-	//	hy Ц шаг дискретизации по 
+	//	hy Ц шаг дискретизации по y
 	double hy;
 	//	tau Ц шаг по времени
 	double tau;

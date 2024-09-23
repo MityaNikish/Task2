@@ -7,4 +7,10 @@
   <ItemGroup>
     <ClInclude Include="wave_equation.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="input.txt" />
+  </ItemGroup>
 </Project>
