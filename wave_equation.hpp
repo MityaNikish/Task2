@@ -20,7 +20,7 @@ private:
 	double func(double t) const;
 
 	//	интерпритирует два индексна двумерного массива в один индекс для одноменрного массива
-	size_t pos(size_t indexX, size_t indexY) const;
+	inline size_t pos(size_t indexX, size_t indexY) const;
 
 private:
 	//	Nx – число узлов конечно - разностной схемы по направлению x
