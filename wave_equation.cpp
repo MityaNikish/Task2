@@ -40,6 +40,9 @@ void WaveEquation::calculating() const
 	const double sqr_tau = tau * tau;
 	const double hx_hy = hx * hy;
 
+	const size_t is = static_cast<size_t>(xs / hx);
+	const size_t js = static_cast<size_t>(ys / hy);
+
 	for (size_t n = 1; n <= Nt; ++n)
 	{
 		const double t = tau * static_cast<double>(n - 1);
@@ -56,7 +59,7 @@ void WaveEquation::calculating() const
 				const double Ly_minus = (j == 0) ? 0 : (data[pos(i, j)] - data[pos(i, j - 1)]);
 				const double Lyy = (Ly_plus - Ly_minus) / sqr_hy;
 
-				const double core = (static_cast<size_t>(xs / hx) == i && static_cast<size_t>(ys / hy) == j) ? (func(t) / hx_hy) : 0 + c[pos(i, j)] * c[pos(i, j)] * (Lxx + Lyy);
+				const double core = (is == i && js == j) ? (func(t) / hx_hy) : 0 + c[pos(i, j)] * c[pos(i, j)] * (Lxx + Lyy);
 				data_next[pos(i, j)] = sqr_tau * core + 2 * data[pos(i, j)] - data_pref[pos(i, j)];
 
 			}
