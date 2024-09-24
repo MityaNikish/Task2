@@ -59,7 +59,7 @@ void WaveEquation::calculating() const
 				const double Ly_minus = (j == 0) ? 0 : (data[pos(i, j)] - data[pos(i, j - 1)]);
 				const double Lyy = (Ly_plus - Ly_minus) / sqr_hy;
 
-				const double core = (is == i && js == j) ? (func(t) / hx_hy) : 0 + c[pos(i, j)] * c[pos(i, j)] * (Lxx + Lyy);
+				const double core = ((is == i && js == j) ? (func(t) / hx_hy) : 0) + c[pos(i, j)] * c[pos(i, j)] * (Lxx + Lyy);
 				data_next[pos(i, j)] = sqr_tau * core + 2 * data[pos(i, j)] - data_pref[pos(i, j)];
 
 			}
@@ -90,3 +90,4 @@ inline size_t WaveEquation::pos(size_t indexX, size_t indexY) const
 {
 	return indexY * Nx + indexX;
 }
+
