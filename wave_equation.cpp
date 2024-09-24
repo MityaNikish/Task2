@@ -61,7 +61,6 @@ void WaveEquation::calculating() const
 
 				const double core = ((is == i && js == j) ? (func(t) / hx_hy) : 0) + c[pos(i, j)] * c[pos(i, j)] * (Lxx + Lyy);
 				data_next[pos(i, j)] = sqr_tau * core + 2 * data[pos(i, j)] - data_pref[pos(i, j)];
-
 			}
 		}
 		std::swap(data_pref, data);
@@ -82,8 +81,8 @@ void WaveEquation::saveData(const std::vector<double>& data, const std::string& 
 
 double WaveEquation::func(const double t) const
 {
-	const double part = PI * f * pow(t - 2 / f, 2);
-	return (1 - 2 * PI * f * part) * exp(-part);
+	const double part = pow(PI * f * (t - 2 / f), 2);
+	return (1 - 2 * part) * exp(-part);
 }
 
 inline size_t WaveEquation::pos(size_t indexX, size_t indexY) const
